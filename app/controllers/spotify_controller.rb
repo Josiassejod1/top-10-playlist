@@ -6,7 +6,10 @@ class SpotifyController < ApplicationController
     end
     
     def hi
-        RSpotify.authenticate("a40b9858e96946819ffdcfa45239c8c1", "31de96cfb3ef4fe4941ea49a9fd92351")
+       key = ENV["SPOTIFY_KEY"]
+        secret = ENV["SPOTIFY_SECRET"]
+        
+        RSpotify.authenticate(key, secret)
         @artist = params[:artist];
          result = RSpotify::Artist.search(@artist)
          puts ap(result)
