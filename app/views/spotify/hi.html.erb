@@ -1,0 +1,7 @@
+
+    <% @result.each do |artist| %>
+
+        <p>Artist: <%= link_to(artist.name , {:controller => 'spotify', :action => 'artist', :id => artist.name}) %>
+                |Followers: <%= artist.followers['total'] %>
+        </p>
+    <% end %>

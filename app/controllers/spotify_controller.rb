@@ -11,13 +11,14 @@ class SpotifyController < ApplicationController
         
         RSpotify.authenticate(key, secret)
         @artist = params[:artist];
-         result = RSpotify::Artist.search(@artist)
-         puts ap(result)
-        render json: result
+         @result = RSpotify::Artist.search(@artist, limit: 10, market:'US')
+         puts ap(@result)
+        #render json: result
        # render json: result
     end
     
-    def album
+    def artist
+     render json: params[:id]
     end
     
     def index
