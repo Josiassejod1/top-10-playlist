@@ -18,7 +18,18 @@ class SpotifyController < ApplicationController
     end
     
     def artist
-     render json: params[:id]
+     @artist  = params[:id]
+     @result = RSpotify::Artist.search(@artist).first
+     
+     #puts @result.images.count
+     #Prints out images
+     if @result.images.count == 0
+        @image = 'not-found.png'
+     else
+        @image = @result.images[0]['url']
+     puts @result.images
+     #render json: params[:id]
+     end
     end
     
     def index
