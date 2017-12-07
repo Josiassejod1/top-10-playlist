@@ -2,7 +2,10 @@ require 'rspotify'
 require 'json'
 require 'awesome_print'
 class SpotifyController < ApplicationController
+ 
+ 
     def hello
+     
      @A = Artist.all
          
     end
@@ -10,11 +13,16 @@ class SpotifyController < ApplicationController
     def hi
        key = ENV["SPOTIFY_KEY"]
         secret = ENV["SPOTIFY_SECRET"]
-        
         RSpotify.authenticate(key, secret)
         @artist = params[:artist];
+        
+        if @artist != ""
          @result = RSpotify::Artist.search(@artist, limit: 10, market:'US')
          puts ap(@result)
+        else 
+         flash[:null] = "Please Input Artist Name"
+        redirect_to({:action => 'hello' })
+       end
          
          
          
