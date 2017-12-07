@@ -3,3 +3,17 @@
   <%= text_field_tag(:artist) %>
   <%= submit_tag("Search") %>
 <% end %>
+
+<% if @A != nil %>
+<table>
+  <% @A.each do |info|%>
+  <tr>
+    <td>
+        <iframe src="https://open.spotify.com/follow/1/?uri=<%=info.artist_uri%>&size=detail&theme=light" width="300" height="56" 
+        scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true" id="prevent"></iframe>
+    </td>
+    <td><%= link_to('Delete', :action => 'delete', params: {:name => info.name})%></td>
+  </tr>
+  <%end %>
+</table>
+<% end %>

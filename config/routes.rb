@@ -3,6 +3,9 @@ Rails.application.routes.draw do
   get 'spotify/hello'
   post 'spotify/hi'
   get 'spotify/artists/:id' ,to: 'spotify#artist'
+  post 'spotify/create'
+  get 'spotify/delete'
+  
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

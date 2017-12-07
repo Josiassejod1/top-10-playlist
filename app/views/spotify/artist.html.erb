@@ -2,11 +2,12 @@
 <h1><%= @artist%></h1>
 <%= image_tag(@image, :size => '200x200') %>
 
+<% if @track_uri != nil %>
 <h4>Top Tracks</h4>
-
-<% @uri.each do |u| %>
-
+<% @track_uri.each do |u| %>
 <iframe src="https://open.spotify.com/embed?uri=<%= u.uri %>" 
         frameborder="0" allowtransparency="true"></iframe>
 
+<% end %>
+<%= button_to "Add Artist", action: "create" , method: :post, params:{name: @artist, image: @image, artist_uri: @artist_uri} %>
 <% end %>
