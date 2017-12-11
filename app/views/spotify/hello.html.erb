@@ -14,16 +14,33 @@
 
 
 
+<style>
+    td{padding:0 15px 0 15px;}
+    tr{border:1px solid green;
+</style>
 <% if @A != nil %>
-<table>
+
+   <table>
+   <tbody id="list" style="border: 1px solid #ccc;"> 
   <% @A.each do |info|%>
-  <tr>
-    <td>
+ 
+
+ 
+    
+    <%= content_tag_for :tr, info do %>
+    <td data-update-url="spotify/sort">
         <iframe src="https://open.spotify.com/follow/1/?uri=<%=info.artist_uri%>&size=detail&theme=light" width="300" height="56" 
         scrolling="no" frameborder="0" style="border:none; overflow:hidden;" allowtransparency="true" id="prevent"></iframe>
     </td>
     <td><%= link_to('Delete', :action => 'delete', params: {:name => info.name})%></td>
-  </tr>
+    <td><%= link_to('Profile' , {:controller => 'spotify', :action => 'artist', :id => info.name, :position => info.position}) %></td>
+    <td><h3><%=info.position%></h3></td>
+    <td ><span class="handle">[drag]</span></td>
+    
+    
+     <% end %>
+ 
   <%end %>
+   </tbody>
 </table>
 <% end %>

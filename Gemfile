@@ -5,7 +5,9 @@ gem 'awesome_print'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.5'
 # Use sqlite3 as the database for Active Record
+gem 'sprockets'
 
+gem 'sortable-rails'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 
@@ -30,6 +32,10 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails'
 
 gem 'figaro'
+
+gem 'jquery-ui-rails'
+
+gem 'acts_as_list'
 
 gem 'dotenv-rails', groups: [:development, :test]
 # Use ActiveModel has_secure_password

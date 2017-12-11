@@ -7,7 +7,8 @@
 <% @track_uri.each do |u| %>
 <iframe src="https://open.spotify.com/embed?uri=<%= u.uri %>" 
         frameborder="0" allowtransparency="true"></iframe>
-
 <% end %>
+<% if @position == nil %>
 <%= button_to "Add Artist", action: "create" , method: :post, params:{name: @artist, image: @image, artist_uri: @artist_uri} %>
+<% end %>
 <% end %>
