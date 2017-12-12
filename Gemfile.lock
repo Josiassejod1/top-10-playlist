@@ -63,6 +63,7 @@ GEM
     dotenv-rails (2.2.1)
       dotenv (= 2.2.1)
       railties (>= 3.2, < 5.2)
+    dynamic_form (1.1.4)
     erubis (2.7.0)
     execjs (2.7.0)
     faraday (0.12.2)
@@ -209,6 +210,7 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   dotenv-rails
+  dynamic_form
   figaro
   jbuilder (~> 2.0)
   jquery-rails

@@ -4,8 +4,11 @@
       </div>
   <% end %>
 
+<%= error_messages_for :name %>
+<%= error_messages_for :position %>
 
-<%= form_tag("spotify/hi", method: "POST", ) do %>
+
+<%= form_tag("spotify/hi", method: "POST", ) do%>
   <%= label_tag(:artist, "Search for Artist:", :required => true) %>
   <%= text_field_tag(:artist) %>
   <%= submit_tag("Search") %>
@@ -16,7 +19,7 @@
 
 <style>
     td{padding:0 15px 0 15px;}
-    tr{border:1px solid green;
+    tr{border:1px solid green;}
 </style>
 <% if @A != nil %>
 
