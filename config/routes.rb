@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   post 'spotify/create'
   get 'spotify/delete'
   post  'spotify/sort'
+  get '/auth/spotify/callback', to: 'spotify#spotify'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

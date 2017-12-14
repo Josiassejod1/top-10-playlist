@@ -37,6 +37,12 @@ class SpotifyController < ApplicationController
         end
     end
     
+    def spotify
+    spotify_user = RSpotify::User.new(request.env['omniauth.auth'])
+    puts spotify_user.country
+    render nothing: true
+    end
+    
     def artist
      key = ENV["SPOTIFY_KEY"]
      secret = ENV["SPOTIFY_SECRET"]
